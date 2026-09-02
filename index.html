@@ -20,7 +20,6 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#050505;
     color:#fff;
-    line-height:1.6;
 }
 
 header{
@@ -28,18 +27,16 @@ header{
     top:0;
     left:0;
     width:100%;
-    height:74px;
-    background:rgba(5,5,5,.92);
+    height:76px;
+    background:rgba(5,5,5,.94);
     border-bottom:1px solid #222;
-    display:flex;
-    align-items:center;
     z-index:1000;
-    backdrop-filter:blur(12px);
 }
 
 .nav{
     width:92%;
     max-width:1250px;
+    height:100%;
     margin:auto;
     display:flex;
     align-items:center;
@@ -49,40 +46,49 @@ header{
 .brand{
     display:flex;
     align-items:center;
-    gap:12px;
-    font-size:20px;
+    gap:13px;
+    font-size:21px;
     font-weight:800;
-    letter-spacing:.5px;
+    letter-spacing:.3px;
 }
 
+/* POLYGON-INSPIRED GEOMETRIC MARK */
 .logo-mark{
-    width:38px;
-    height:38px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    font-weight:bold;
-    color:#fff;
-    background:linear-gradient(135deg,#8247e5,#a66cff);
-    clip-path:polygon(
-        50% 0%,
-        61% 25%,
-        87% 13%,
-        75% 39%,
-        100% 50%,
-        75% 61%,
-        87% 87%,
-        61% 75%,
-        50% 100%,
-        39% 75%,
-        13% 87%,
-        25% 61%,
-        0% 50%,
-        25% 39%,
-        13% 13%,
-        39% 25%
-    );
+    width:40px;
+    height:40px;
+    position:relative;
+    transform:rotate(0deg);
+}
+
+.logo-mark::before,
+.logo-mark::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    border:6px solid #8247e5;
+    transform:rotate(45deg);
+}
+
+.logo-mark::before{
+    left:1px;
+    top:10px;
+}
+
+.logo-mark::after{
+    right:1px;
+    top:10px;
+}
+
+.logo-center{
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:#050505;
+    left:14px;
+    top:14px;
+    transform:rotate(45deg);
+    z-index:2;
 }
 
 nav{
@@ -94,7 +100,6 @@ nav a{
     color:#aaa;
     text-decoration:none;
     font-size:14px;
-    transition:.2s;
 }
 
 nav a:hover{
@@ -103,14 +108,14 @@ nav a:hover{
 
 .hero{
     min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
     padding:120px 20px 80px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
     background:
-        radial-gradient(circle at 50% 35%,rgba(130,71,229,.22),transparent 35%),
-        #050505;
+    radial-gradient(circle at 50% 40%,rgba(130,71,229,.2),transparent 36%),
+    #050505;
 }
 
 .hero-content{
@@ -119,24 +124,24 @@ nav a:hover{
 
 .tag{
     color:#a66cff;
-    font-size:14px;
+    font-size:13px;
     font-weight:bold;
     letter-spacing:2px;
-    margin-bottom:22px;
+    margin-bottom:24px;
 }
 
 h1{
-    font-size:clamp(60px,12vw,150px);
+    font-size:clamp(62px,12vw,150px);
     line-height:.9;
     letter-spacing:-6px;
     margin-bottom:28px;
 }
 
 .hero p{
-    color:#aaa;
+    color:#999;
     font-size:19px;
     max-width:650px;
-    margin:0 auto 35px;
+    margin:0 auto 36px;
 }
 
 .buttons{
@@ -147,58 +152,47 @@ h1{
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 24px;
+    padding:14px 25px;
     border-radius:8px;
     text-decoration:none;
     font-weight:bold;
-    transition:.2s;
 }
 
-.btn-primary{
+.primary{
     background:#8247e5;
     color:#fff;
 }
 
-.btn-primary:hover{
-    transform:translateY(-2px);
-}
-
-.btn-secondary{
+.secondary{
     border:1px solid #444;
     color:#fff;
-}
-
-.btn-secondary:hover{
-    background:#151515;
 }
 
 .stats{
     width:92%;
     max-width:1100px;
-    margin:-20px auto 100px;
+    margin:-20px auto 110px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
+    background:#0a0a0a;
     border:1px solid #222;
     border-radius:16px;
     overflow:hidden;
-    background:#0a0a0a;
 }
 
 .stat{
-    padding:28px 15px;
     text-align:center;
+    padding:28px 15px;
     border-right:1px solid #222;
 }
 
 .stat:last-child{
-    border-right:none;
+    border-right:0;
 }
 
 .stat strong{
     display:block;
     font-size:28px;
-    margin-bottom:5px;
 }
 
 .stat span{
@@ -214,8 +208,7 @@ section{
 
 .section-title{
     font-size:42px;
-    margin-bottom:45px;
-    letter-spacing:-1px;
+    margin-bottom:40px;
 }
 
 .grid{
@@ -225,16 +218,10 @@ section{
 }
 
 .card{
-    background:#0b0b0b;
+    padding:30px;
     border:1px solid #222;
     border-radius:16px;
-    padding:30px;
-    transition:.25s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-    border-color:#444;
+    background:#0b0b0b;
 }
 
 .card h3{
@@ -248,10 +235,10 @@ section{
 }
 
 .token-box{
-    background:#0b0b0b;
+    padding:35px;
     border:1px solid #222;
     border-radius:18px;
-    padding:35px;
+    background:#0b0b0b;
 }
 
 .token-row{
@@ -263,7 +250,7 @@ section{
 }
 
 .token-row:last-child{
-    border-bottom:none;
+    border-bottom:0;
 }
 
 .token-row span:first-child{
@@ -271,18 +258,14 @@ section{
 }
 
 .address{
+    color:#a66cff;
     word-break:break-all;
     text-align:right;
-    color:#b18cff;
-}
-
-.roadmap{
-    display:grid;
-    gap:15px;
 }
 
 .phase{
     padding:25px;
+    margin-bottom:15px;
     border:1px solid #222;
     border-radius:14px;
     background:#0b0b0b;
@@ -303,9 +286,9 @@ section{
 }
 
 footer{
-    border-top:1px solid #222;
     padding:45px 20px;
     text-align:center;
+    border-top:1px solid #222;
     color:#666;
 }
 
@@ -314,6 +297,7 @@ footer strong{
 }
 
 @media(max-width:800px){
+
     nav{
         display:none;
     }
@@ -323,34 +307,27 @@ footer strong{
     }
 
     .stat:nth-child(2){
-        border-right:none;
-    }
-
-    .stat:nth-child(-n+2){
-        border-bottom:1px solid #222;
+        border-right:0;
     }
 
     .grid{
         grid-template-columns:1fr;
     }
-
-    h1{
-        letter-spacing:-3px;
-    }
 }
 
 @media(max-width:500px){
+
     .stats{
         grid-template-columns:1fr;
     }
 
     .stat{
-        border-right:none;
+        border-right:0;
         border-bottom:1px solid #222;
     }
 
     .stat:last-child{
-        border-bottom:none;
+        border-bottom:0;
     }
 
     .token-row{
@@ -367,263 +344,96 @@ footer strong{
 <body>
 
 <header>
-    <div class="nav">
+<div class="nav">
 
-        <div class="brand">
-            <div class="logo-mark">★</div>
-            <span>POLYGON</span>
+    <div class="brand">
+
+        <div class="logo-mark">
+            <div class="logo-center"></div>
         </div>
 
-        <nav>
-            <a href="#technology">Technology</a>
-            <a href="#ecosystem">Ecosystem</a>
-            <a href="#token">Token</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#about">About</a>
-        </nav>
+        <span>POLYGON</span>
 
     </div>
+
+    <nav>
+        <a href="#technology">Technology</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#token">Token</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#about">About</a>
+    </nav>
+
+</div>
 </header>
 
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="tag">POLYGON PŌS • DIGITAL ASSET</div>
+    <div class="tag">
+        POLYGON PoS • DIGITAL ASSET
+    </div>
 
-        <h1>POLYGON</h1>
+    <h1>POLYGON</h1>
 
-        <p>
-            A next-generation digital asset built for fast,
-            transparent and accessible blockchain transactions.
-        </p>
+    <p>
+        A next-generation digital asset built for
+        fast, transparent and accessible blockchain
+        transactions.
+    </p>
 
-        <div class="buttons">
-            <a class="btn btn-primary"
-               href="https://polygonscan.com/token/0xF9631EF4fD3175d0477eEB15512d6c97440bC779"
-               target="_blank">
-                View Contract
-            </a>
+    <div class="buttons">
 
-            <a class="btn btn-secondary"
-               href="#token">
-                Explore POL
-            </a>
-        </div>
+        <a class="btn primary"
+        href="https://polygonscan.com/token/0xF9631EF4fD3175d0477eEB15512d6c97440bC779"
+        target="_blank">
+        View Contract
+        </a>
+
+        <a class="btn secondary" href="#token">
+        Explore POL
+        </a>
 
     </div>
+
+</div>
 
 </section>
 
 
 <div class="stats">
 
-    <div class="stat">
-        <strong>100M</strong>
-        <span>Total Supply</span>
-    </div>
+<div class="stat">
+<strong>100M</strong>
+<span>Total Supply</span>
+</div>
 
-    <div class="stat">
-        <strong>18</strong>
-        <span>Decimals</span>
-    </div>
+<div class="stat">
+<strong>18</strong>
+<span>Decimals</span>
+</div>
 
-    <div class="stat">
-        <strong>ERC-20</strong>
-        <span>Token Standard</span>
-    </div>
+<div class="stat">
+<strong>ERC-20</strong>
+<span>Token Standard</span>
+</div>
 
-    <div class="stat">
-        <strong>PoS</strong>
-        <span>Network</span>
-    </div>
+<div class="stat">
+<strong>PoS</strong>
+<span>Network</span>
+</div>
 
 </div>
 
 
 <section id="technology">
 
-    <h2 class="section-title">Technology</h2>
+<h2 class="section-title">Technology</h2>
 
-    <div class="grid">
+<div class="grid">
 
-        <div class="card">
-            <h3>Fast Transactions</h3>
-            <p>
-                Designed for efficient blockchain transfers
-                with low transaction overhead.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Secure Infrastructure</h3>
-            <p>
-                Built around transparent smart-contract
-                infrastructure on Polygon PoS.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Open Ecosystem</h3>
-            <p>
-                Compatible with wallets, explorers and
-                decentralized applications.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section id="ecosystem">
-
-    <h2 class="section-title">Ecosystem</h2>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Wallets</h3>
-            <p>
-                Store and manage POL using compatible
-                Web3 wallets.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>DeFi</h3>
-            <p>
-                Designed to interact with decentralized
-                applications and protocols.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Developers</h3>
-            <p>
-                Build applications and integrations around
-                the POL token.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section id="token">
-
-    <h2 class="section-title">POL Token</h2>
-
-    <div class="token-box">
-
-        <div class="token-row">
-            <span>Name</span>
-            <strong>POL</strong>
-        </div>
-
-        <div class="token-row">
-            <span>Symbol</span>
-            <strong>POL</strong>
-        </div>
-
-        <div class="token-row">
-            <span>Standard</span>
-            <strong>ERC-20</strong>
-        </div>
-
-        <div class="token-row">
-            <span>Decimals</span>
-            <strong>18</strong>
-        </div>
-
-        <div class="token-row">
-            <span>Total Supply</span>
-            <strong>100,000,000 POL</strong>
-        </div>
-
-        <div class="token-row">
-            <span>Contract</span>
-            <span class="address">
-                0xF9631EF4fD3175d0477eEB15512d6c97440bC779
-            </span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section id="roadmap">
-
-    <h2 class="section-title">Roadmap</h2>
-
-    <div class="roadmap">
-
-        <div class="phase">
-            <span>PHASE 01</span>
-            <h3>Foundation</h3>
-            <p>
-                Smart contract deployment and initial
-                ecosystem setup.
-            </p>
-        </div>
-
-        <div class="phase">
-            <span>PHASE 02</span>
-            <h3>Ecosystem</h3>
-            <p>
-                Wallet integration, public information
-                and community development.
-            </p>
-        </div>
-
-        <div class="phase">
-            <span>PHASE 03</span>
-            <h3>Expansion</h3>
-            <p>
-                Future integrations and broader
-                Web3 ecosystem development.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section id="about">
-
-    <h2 class="section-title">About POL</h2>
-
-    <div class="card">
-
-        <p>
-            POL is an independent ERC-20 digital asset
-            deployed on Polygon PoS. Its smart contract
-            and transaction history are publicly verifiable
-            on the blockchain.
-        </p>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    <p>
-        <strong>POLYGON</strong>
-        <br>
-        Independent Web3 Digital Asset
-    </p>
-
-    <br>
-
-    <p>© 2026 POL. All rights reserved.</p>
-
-</footer>
-
-</body>
-</html>
+<div class="card">
+<h3>Fast Transactions</h3>
+<p>Efficient blockchain transfers with low transaction overhead.</p
