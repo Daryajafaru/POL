@@ -20,7 +20,10 @@ body{
     font-family:Arial,Helvetica,sans-serif;
     background:#050505;
     color:#fff;
+    line-height:1.6;
 }
+
+/* HEADER */
 
 header{
     position:fixed;
@@ -28,55 +31,12 @@ header{
     left:0;
     width:100%;
     height:76px;
-    background:rgba(5,5,5,.94);
+    background:rgba(5,5,5,.95);
     border-bottom:1px solid #222;
     z-index:1000;
-}
-.logo-mark{
-    width:42px;
-    height:38px;
-    position:relative;
+    backdrop-filter:blur(12px);
 }
 
-.hex{
-    position:absolute;
-    width:25px;
-    height:29px;
-    background:#8247e5;
-    clip-path:polygon(
-        25% 0%,
-        75% 0%,
-        100% 50%,
-        75% 100%,
-        25% 100%,
-        0% 50%
-    );
-}
-
-.hex::after{
-    content:"";
-    position:absolute;
-    inset:6px;
-    background:#050505;
-    clip-path:polygon(
-        25% 0%,
-        75% 0%,
-        100% 50%,
-        75% 100%,
-        25% 100%,
-        0% 50%
-    );
-}
-
-.hex-left{
-    left:0;
-    top:4px;
-}
-
-.hex-right{
-    right:0;
-    top:4px;
-}
 .nav{
     width:92%;
     max-width:1250px;
@@ -90,11 +50,68 @@ header{
 .brand{
     display:flex;
     align-items:center;
-    gap:13px;
+    gap:14px;
     font-size:21px;
     font-weight:800;
-    letter-spacing:.3px;
+    letter-spacing:.5px;
 }
+
+/* TWO HEXAGONS LOGO */
+
+.logo-mark{
+    width:48px;
+    height:38px;
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.hex{
+    width:29px;
+    height:34px;
+    position:absolute;
+    background:#8247e5;
+
+    clip-path:polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+.hex::after{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:20px;
+    left:7px;
+    top:7px;
+    background:#050505;
+
+    clip-path:polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+.hex-left{
+    left:0;
+    top:2px;
+}
+
+.hex-right{
+    right:0;
+    top:2px;
+}
+
+/* NAVIGATION */
 
 nav{
     display:flex;
@@ -105,11 +122,14 @@ nav a{
     color:#aaa;
     text-decoration:none;
     font-size:14px;
+    transition:.2s;
 }
 
 nav a:hover{
     color:#fff;
 }
+
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -118,8 +138,13 @@ nav a:hover{
     justify-content:center;
     align-items:center;
     text-align:center;
+
     background:
-    radial-gradient(circle at 50% 40%,rgba(130,71,229,.2),transparent 36%),
+    radial-gradient(
+        circle at 50% 40%,
+        rgba(130,71,229,.22),
+        transparent 38%
+    ),
     #050505;
 }
 
@@ -132,313 +157,14 @@ nav a:hover{
     font-size:13px;
     font-weight:bold;
     letter-spacing:2px;
-    margin-bottom:24px;
+    margin-bottom:25px;
 }
 
 h1{
     font-size:clamp(62px,12vw,150px);
     line-height:.9;
     letter-spacing:-6px;
-    margin-bottom:28px;
+    margin-bottom:30px;
 }
 
 .hero p{
-    color:#999;
-    font-size:19px;
-    max-width:650px;
-    margin:0 auto 36px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:14px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.primary{
-    background:#8247e5;
-    color:#fff;
-}
-
-.secondary{
-    border:1px solid #444;
-    color:#fff;
-}
-
-.stats{
-    width:92%;
-    max-width:1100px;
-    margin:-20px auto 110px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    background:#0a0a0a;
-    border:1px solid #222;
-    border-radius:16px;
-    overflow:hidden;
-}
-
-.stat{
-    text-align:center;
-    padding:28px 15px;
-    border-right:1px solid #222;
-}
-
-.stat:last-child{
-    border-right:0;
-}
-
-.stat strong{
-    display:block;
-    font-size:28px;
-}
-
-.stat span{
-    color:#777;
-    font-size:13px;
-}
-
-section{
-    width:92%;
-    max-width:1150px;
-    margin:0 auto 120px;
-}
-
-.section-title{
-    font-size:42px;
-    margin-bottom:40px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    padding:30px;
-    border:1px solid #222;
-    border-radius:16px;
-    background:#0b0b0b;
-}
-
-.card h3{
-    font-size:21px;
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#888;
-    font-size:15px;
-}
-
-.token-box{
-    padding:35px;
-    border:1px solid #222;
-    border-radius:18px;
-    background:#0b0b0b;
-}
-
-.token-row{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    padding:18px 0;
-    border-bottom:1px solid #222;
-}
-
-.token-row:last-child{
-    border-bottom:0;
-}
-
-.token-row span:first-child{
-    color:#777;
-}
-
-.address{
-    color:#a66cff;
-    word-break:break-all;
-    text-align:right;
-}
-
-.phase{
-    padding:25px;
-    margin-bottom:15px;
-    border:1px solid #222;
-    border-radius:14px;
-    background:#0b0b0b;
-}
-
-.phase span{
-    color:#a66cff;
-    font-size:13px;
-    font-weight:bold;
-}
-
-.phase h3{
-    margin:7px 0;
-}
-
-.phase p{
-    color:#888;
-}
-
-footer{
-    padding:45px 20px;
-    text-align:center;
-    border-top:1px solid #222;
-    color:#666;
-}
-
-footer strong{
-    color:#fff;
-}
-
-@media(max-width:800px){
-
-    nav{
-        display:none;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stat:nth-child(2){
-        border-right:0;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:500px){
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-    .stat{
-        border-right:0;
-        border-bottom:1px solid #222;
-    }
-
-    .stat:last-child{
-        border-bottom:0;
-    }
-
-    .token-row{
-        flex-direction:column;
-    }
-
-    .address{
-        text-align:left;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="nav">
-
-    <div class="brand">
-
-        <div class="logo-mark">
-            <div class="logo-center"></div>
-        </div>
-
-        <span>POLYGON</span>
-
-    </div>
-
-    <nav>
-        <a href="#technology">Technology</a>
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#token">Token</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#about">About</a>
-    </nav>
-
-</div>
-</header>
-
-
-<section class="hero">
-
-<div class="hero-content">
-
-    <div class="tag">
-        POLYGON PoS • DIGITAL ASSET
-    </div>
-
-    <h1>POLYGON</h1>
-
-    <p>
-        A next-generation digital asset built for
-        fast, transparent and accessible blockchain
-        transactions.
-    </p>
-
-    <div class="buttons">
-
-        <a class="btn primary"
-        href="https://polygonscan.com/token/0xF9631EF4fD3175d0477eEB15512d6c97440bC779"
-        target="_blank">
-        View Contract
-        </a>
-
-        <a class="btn secondary" href="#token">
-        Explore POL
-        </a>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<div class="stats">
-
-<div class="stat">
-<strong>100M</strong>
-<span>Total Supply</span>
-</div>
-
-<div class="stat">
-<strong>18</strong>
-<span>Decimals</span>
-</div>
-
-<div class="stat">
-<strong>ERC-20</strong>
-<span>Token Standard</span>
-</div>
-
-<div class="stat">
-<strong>PoS</strong>
-<span>Network</span>
-</div>
-
-</div>
-
-
-<section id="technology">
-
-<h2 class="section-title">Technology</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Fast Transactions</h3>
-<p>Efficient blockchain transfers with low transaction overhead.</p
