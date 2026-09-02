@@ -32,7 +32,51 @@ header{
     border-bottom:1px solid #222;
     z-index:1000;
 }
+.logo-mark{
+    width:42px;
+    height:38px;
+    position:relative;
+}
 
+.hex{
+    position:absolute;
+    width:25px;
+    height:29px;
+    background:#8247e5;
+    clip-path:polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+.hex::after{
+    content:"";
+    position:absolute;
+    inset:6px;
+    background:#050505;
+    clip-path:polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+}
+
+.hex-left{
+    left:0;
+    top:4px;
+}
+
+.hex-right{
+    right:0;
+    top:4px;
+}
 .nav{
     width:92%;
     max-width:1250px;
@@ -50,45 +94,6 @@ header{
     font-size:21px;
     font-weight:800;
     letter-spacing:.3px;
-}
-
-/* POLYGON-INSPIRED GEOMETRIC MARK */
-.logo-mark{
-    width:40px;
-    height:40px;
-    position:relative;
-    transform:rotate(0deg);
-}
-
-.logo-mark::before,
-.logo-mark::after{
-    content:"";
-    position:absolute;
-    width:20px;
-    height:20px;
-    border:6px solid #8247e5;
-    transform:rotate(45deg);
-}
-
-.logo-mark::before{
-    left:1px;
-    top:10px;
-}
-
-.logo-mark::after{
-    right:1px;
-    top:10px;
-}
-
-.logo-center{
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:#050505;
-    left:14px;
-    top:14px;
-    transform:rotate(45deg);
-    z-index:2;
 }
 
 nav{
